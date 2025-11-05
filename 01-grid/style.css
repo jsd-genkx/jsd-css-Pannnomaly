@@ -21,19 +21,23 @@ body {
 }
 
 .container {
-	width: 100%;
-	min-height: 100dvh;
-	/* display: grid; */
-	/* grid-template-rows: auto 1fr auto; */
-	/* grid-template-columns: 30ch 1fr; */
-	/* grid-template-areas:
+	width: 100%; /* แสดงผลกว้าง 100% คือเต็มจอไปเลยเมื่อเทียบกับ body */
+	min-height: 100dvh; /* dvh: dynamic viewport high, min-height คือเต็มหน้าจอในจอแรก (ความสูงขั้นต่ำ) ถ้าเกินมันจะเพิ่มเป็น scroll bar ให้เอง */
+	display: grid; /* สั่ง layout เป็นแบบ grid */
+	grid-template-rows: auto 1fr auto; /* 3 row navbar, main, footer */ /* repeat(3, auto) นั่นคือทำซ้ำ 3 row แต่ละอัน auto */
+	/* มี 3 rows คือ auto 1fr auto ซึ่งเป็นการกำหนดความสูงของแต่ละ row
+		fr = fraction คือหน่วยที่เอาไว้ใช้กับ grid เท่านั้น คืออัตราส่วน 1fr คือเหลือเท่าไรเอาเท่านั้น เป็นส่วนแบ่งจากพื้นที่ที่เหลือ
+		นั่นคือจะใช้พื้นที่ที่เหลือจากการ fix พื้นที่อื่นๆ แล้วเอามาแบ่งตามสัดส่วนที่กำหนด */
+
+	grid-template-columns: 30ch 1fr; /* หน่วย character กว้าง 30 ตัวอักษร แล้วที่เหลือคือ 1fr เหลือเท่าไรก็เอามาแปะเลย */
+	grid-template-areas:
 		"header header"
-		"main main"
-		"footer footer"; */
+		"aside main"
+		"footer footer";
 }
 
 section {
-	padding: 1rem 3rem;
+	padding: 1rem 3rem; /* บนล่าง ซ้ายขวา */
 }
 
 .story {
@@ -41,31 +45,31 @@ section {
 }
 
 header {
-	height: var(--nav-height);
+	height: var(--nav-height); /* fixed ไว้ */
 	background-color: var(--color-primary);
 	color: var(--color-white);
 
-	/* grid-area: header; */
+	grid-area: header; /* เป็นการบอกลูกว่าตัวเองชื่ออะไร แล้วจะให้ไปจัดเรียงใน  grid-template-areas */
 }
 
 main {
 	color: var(--color-black);
 	background-color: var(--color-accent);
 
-	/* grid-area: main; */
+	grid-area: main; /* เป็นการบอกลูกว่าตัวเองชื่ออะไร แล้วจะให้ไปจัดเรียงใน  grid-template-areas */
 }
 
 aside {
 	color: var(--color-white);
 	background-color: var(--color-black);
-  display: none;
+  /* display: none; */
 
-	/* grid-area: aside; */
+	grid-area: aside; /* เป็นการบอกลูกว่าตัวเองชื่ออะไร แล้วจะให้ไปจัดเรียงใน  grid-template-areas */
 }
 
 footer {
 	background-color: var(--color-secondary);
 	color: var(--color-white);
 
-	/* grid-area: footer; */
+	grid-area: footer; /* เป็นการบอกลูกว่าตัวเองชื่ออะไร แล้วจะให้ไปจัดเรียงใน  grid-template-areas */
 }

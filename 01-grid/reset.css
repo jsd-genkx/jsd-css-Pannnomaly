@@ -6,6 +6,8 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+/* เราทำการ reset เพื่อให้จุดเริ่มต้นของการแต่ง css จริงๆ คือ 0, 0 หรือที่ บนซ้ายสุดของจอ */
+
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
@@ -15,7 +17,7 @@ picture,
 video,
 canvas,
 svg {
-	display: block;
+	display: block; /* เพื่อให้มีการขึ้นบรรทัดใหม่ เพราะแบบเดิมเป็นแบบ inline */
 	max-width: 100%;
 	height: auto;
 	object-fit: cover;
