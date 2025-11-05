@@ -20,7 +20,7 @@ body {
 	font-family: var(--font-sans), serif;
 }
 
-header {
+header { /* nested text */
 	height: var(--nav-height);
 	background-color: var(--color-primary);
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
@@ -46,7 +46,7 @@ header {
 		list-style: none;
 		cursor: pointer;
 
-		&:hover:not(:first-of-type, :last-of-type) {
+		&:hover:not(:first-of-type, :last-of-type) { /* ไม่เอาตัวแรกและตัวสุดท้ายของประเภทนั้น, & คือ li */
 			text-decoration: underline;
 			text-decoration-color: var(--color-accent);
 			text-decoration-thickness: 3px;
@@ -68,6 +68,8 @@ header {
 	}
 
 	.nav-item:first-of-type {
-		margin-right: auto;
+		margin-right: auto; /* พื้นที่เหลือเท่าไรไม่รู้ แต่มันจะไปทางขวาเองเลย */
+		/* margin-right ขยับออกจากฝั่งขวา */
+		/* ดูดีๆ นะ มันสั่ง logo นะไม่ได้สั่งตัว nav อื่นๆ */
 	}
 }

@@ -24,34 +24,54 @@ body {
 .container {
 	background-color: var(--color-accent);
 	width: 100%;
-	min-height: 100dvh;
+	min-height: 100dvh; /* ให้ container สูงเท่าขนาดหน้าจอพอดี */
+	outline: 5px solid aqua;
 
-	display: flex;
-	/* gap: 1rem; */
-	/* justify-content: center; */
-	/* align-items: center; */
+	display: flex; /* default คือ row จากซ้ายไปขวา หากไม่กำหนดความสูงมันจะยืดจนเต็มหน้าจอเลย */
+	flex-direction: column; /* default คือ row */
+	gap: 1rem; /* ช่องว่างระหว่างกัน (ระหว่าง item ลูก) 16px อิงจาก tag html */
+	/* มี gap-row, gap-column, gap อย่างเดียวจะทำทั้งคู่ */
+
+	justify-content: center; /* จัดเรียงตามแนวของ container (parent) default คือ row (แนวนอน) */
+	/* space-evenly ช่องว่างที่เหลือจาก content จะเท่าๆ กัน */
+	/* space-around หัวท้ายเท่ากันและพื้นที่ภายในจะเทา่กันจาก content หัวท้าย */
+
+	align-items: start; /* จัดเรียง item ตามแนวขวางกับแกนหลัก (cross-axis) */
+
 	/* align-content: center; */
 	/* flex-wrap: wrap; */
+	/* ขึ้นบรรทัดใหม่เมื่อ content เกินมา nowarp คือไม่ขึ้น */
 
-	/* flex-direction: column; */
 	/* height: 90vh; */
 }
 
 .box {
 	width: 200px;
-	aspect-ratio: 1;
+	/* height: 100px; */
+	aspect-ratio: 1; /* ให้เป็นจัตุรัส */
 	font-size: 2rem;
 	background-color: var(--color-primary);
 	color: var(--color-white);
 	border: solid var(--color-white) 5px;
 
-	/* flex-shrink: 1;
-	flex-grow: 0;
-	flex-basis: 300px; */
+	/* flex-shrink: 1; */
+	/* 1 = on, 0 = off สั่งหดตอนเปลี่ยนขนาดหน้าจอให้น้อยลง */
+	/* flex-grow: 0; */
+	/* สั่งขยาย 0 = default ไม่ขยาย */
+	/* flex-basis: 300px; */
+	/* ขนาด default ก่อนหดหรือขาย default = auto */
+	
 
 	/* flex:1; */
+	/* พื้นที่แบ่งเท่าๆ กัน จะทำให้ขนาดของ item ลูกใหญ่ขึ้น */
+	
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
+	/* เพราะ .box เป็น parent ของ span (child) ที่อยู่ในนั้น จะสั่ง flex สั่งที่ parent เพื่อให้ไปมีผลที่ child */
 }
 
 /* .box3 {
 	flex:555;
 } */
+

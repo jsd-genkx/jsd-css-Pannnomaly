@@ -1,21 +1,145 @@
 /* Import Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Itim&family=Orbitron:wght@400..900&family=Sriracha&display=swap');
 
 :root {
-	--color-primary: #0d4663;
-	--color-secondary: #135492;
-	--color-accent: #ff9a88;
+	--color-background: #f8d2cf;
+	--color-border: #ea7178;
+	--color-backcard: #ffc3cb;
+	--color-btn: #e97077;
+	--color-btn-hover: #d86168;
+	--color-btn-hover2: #d7d4d6;
 
 	--color-black: #111;
-	--color-white: #f5f5f5;
+	--color-white: #efedee;
 
-	--font-sans: "Inter";
-
-	--nav-height: 64px;
+	--font-fam: "Itim";
 }
 
 body {
-	font-family: var(--font-sans), serif;
+	font-family: var(--font-fam), cursive;
+	height: 100dvh;
+	overflow: hidden;
+	background-color: var(--color-background);
+	color: var(--color-black);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	width: 350px;
+	height: 700px;
+	perspective: 800px;
+}
+
+.card {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	transition: transform 1500ms;
+	transform-style: preserve-3d;
+}
+
+.container:hover > .card {
+	cursor: pointer;
+	transform: rotateY(180deg);
+}
+
+.front-card, .back-card {
+	height: 100%;
+	width: 100%;
+	border-radius: 2rem;
+	box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.front-card {
+	background-image: url('https://i.pinimg.com/736x/a9/c7/dc/a9c7dcff56ecc0106ab3d02daa67873f.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: 3px solid var(--color-border);
+}
+
+.back-card {
+	background-color: var(--color-backcard);
+	transform: rotateY(180deg);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 24px;
+	gap: 16px;
+	overflow: hidden;
+	border: 3px solid var(--color-border);
+}
+
+.nav:first-of-type {
+	margin-top: auto;
+}
+
+.media {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	border-radius: 2rem;
+}
+
+.media img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card-content {
+	flex: 1;
+	text-align: center;
+	margin-top: 90px;
+	font-size: 1.25rem;
+}
+
+.card-content p:nth-child(3) {
+	margin-top: 30px;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.card-info {
+  display: flex;
+  font-size: 1.1rem;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btnInfo {
+	padding: 10px 20px;
+	border-radius: 999px;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.card-info .btnInfo:hover {
+	scale: 1.1;
+}
+
+.card-info #readMore {
+	background-color: var(--color-btn);
+}
+
+.card-info #readMore:hover {
+	background-color: var(--color-btn-hover);
+}
+
+.card-info #buy {
+	background-color: var(--color-white);
+}
+
+.card-info #buy:hover {
+	background-color: var(--color-btn-hover2);
 }
